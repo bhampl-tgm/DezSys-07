@@ -1,0 +1,5 @@
+spring.datasource.url=jdbc:postgresql://<IP/DOMAIN>/<DB>
+spring.datasource.username=<USERNAME>
+spring.datasource.password=<PASSWORD>
+
+spring.jpa.hibernate.ddl-auto=create-drop
