@@ -11,4 +11,5 @@ import java.util.List;
 public interface KnowlegeRepository extends CrudRepository<Knowlege, String>{
     List<Knowlege> findByTitleContainingIgnoreCase(@Param("title") String title);
     List<Knowlege> findAll();
+    Knowlege findById(@Param("id") long id);
 }
