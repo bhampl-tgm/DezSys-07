@@ -2,28 +2,37 @@ package at.ac.tgm.hit.syt.dezsys.hamplwortha.domain;
 
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
-public class Knowlege{
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "knowledge", propOrder = {"id", "title", "content", "language"})
+public class Knowledge{
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false)
+    @XmlElement(required = true)
     private String title;
 
     @Column(nullable = false)
+    @XmlElement(required = true)
     private String content;
 
     @Column(nullable = false)
+    @XmlElement(required = true)
     private String language;
 
-    public Knowlege(){
+    public Knowledge(){
 
     }
 
-    public Knowlege(String title, String content, String language) {
+    public Knowledge(String title, String content, String language) {
         this.title = title;
         this.content = content;
         this.language = language;
