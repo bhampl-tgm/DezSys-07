@@ -21,14 +21,14 @@ public class WebServiceConfig extends WsConfigurerAdapter{
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/datarecords/search/*");
+        return new ServletRegistrationBean(servlet, "/knowledge/search/*");
     }
 
     @Bean(name = "knowledge")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema knowledgeSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("KnowledgePort");
-        wsdl11Definition.setLocationUri("datarecords/search");
+        wsdl11Definition.setLocationUri("/knowledge/search");
         wsdl11Definition.setTargetNamespace(KnowledgeEndpoint.NAMESPACE_URI);
         wsdl11Definition.setSchema(knowledgeSchema);
         return wsdl11Definition;

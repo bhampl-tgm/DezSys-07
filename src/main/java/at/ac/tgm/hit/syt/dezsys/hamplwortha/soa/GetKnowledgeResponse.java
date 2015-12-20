@@ -17,7 +17,7 @@ public class GetKnowledgeResponse {
 
     public List<Knowledge> getKnowledge() {
         if(this.knowledge == null) {
-            this.knowledge = new ArrayList();
+            this.knowledge = new ArrayList<>();
         }
 
         return this.knowledge;

@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://at/ac/tgm/hit/syt/dezsys/hamplwortha/soa">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:getKnowledgeRequest>
+         <gs:title>Test</gs:title>
+      </gs:getKnowledgeRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
