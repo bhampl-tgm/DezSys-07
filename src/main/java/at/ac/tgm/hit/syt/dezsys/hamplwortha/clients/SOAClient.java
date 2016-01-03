@@ -9,10 +9,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Ein einfacher SOAP Client
+ */
 public class SOAClient {
 
     private static final String NAMESPACE = "http://at/ac/tgm/hit/syt/dezsys/hamplwortha/soa";
 
+    /**
+     * Hier wird der SOAP Client gestartet
+     * @param args
+     */
     public static void main(String args[]) {
         System.out.print("search for: ");
         String title = "";
@@ -42,6 +49,11 @@ public class SOAClient {
         }
     }
 
+    /**
+     *
+     * @param soapResponse Die Message von welcher ein Response erhalten werden soll
+     * @throws Exception
+     */
     private static void printSOAPResponse(SOAPMessage soapResponse) throws Exception {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
@@ -51,6 +63,12 @@ public class SOAClient {
         transformer.transform(sourceContent, result);
     }
 
+    /**
+     *
+     * @param title Der Titel nach welchem gesucht werden soll
+     * @return Die SOAP Message fuer den Service
+     * @throws Exception
+     */
     private static SOAPMessage createSOAPRequest(String title) throws Exception {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
