@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Knowledge</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet"
+          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"/>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+<body>
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="#">Knowledge</a>
+    </div>
+</div>
+<div id="main" class="container">
+    <button data-bind="click: beginAdd" class="btn btn-success pull-right btn-bottom-buffer">Add Knowledge Entry
+    </button>
+    <table class="table table-striped">
+        <tr>
+            <td><b>Knowledge</b></td>
+            <td><b>Options</b></td>
+        </tr>
+        <!-- ko foreach: knowledge -->
+        <tr>
+            <td><p><b data-bind="text: title"></b></p>
+                <p data-bind="text: language"></p>
+                <p data-bind="text: content"></p></td>
+            <td>
+                <button data-bind="click: $parent.beginEdit" class="btn btn-primary">Edit</button>
+                <button data-bind="click: $parent.remove" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </table>
+</div>
+<div id="add" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="addDialogLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="addDialogLabel">Add Knowledge Entry</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="inputKnowledge">Title</label>
+                <div class="controls">
+                    <input data-bind="value: title" type="text" id="inputKnowledge" placeholder="Knowledge title"
+                           style="width: 150px;"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputContent">Content</label>
+                <div class="controls">
+                    <input data-bind="value: content" type="text" id="inputContent" placeholder="Content"
+                           style="width: 300px;"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputLanguage">Language</label>
+                <div class="controls">
+                    <input data-bind="value: language" type="text" id="inputLanguage" placeholder="Language"
+                           style="width: 150px;"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button data-bind="click: addKnowledge" class="btn btn-primary">Add Knowledge Entry</button>
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    </div>
+</div>
+<div id="edit" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="editDialogLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="editDialogLabel">Edit Knowledge Entry</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="inputKnowledge">Title</label>
+                <div class="controls">
+                    <input data-bind="value: title" type="text" id="inputKnowledge" placeholder="Knowledge title"
+                           style="width: 150px;"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputContent">Content</label>
+                <div class="controls">
+                    <input data-bind="value: content" type="text" id="inputContent" placeholder="Content"
+                           style="width: 300px;"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputLanguage">Language</label>
+                <div class="controls">
+                    <input data-bind="value: language" type="text" id="inputLanguage" placeholder="Language"
+                           style="width: 300px;"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button data-bind="click:editKnowledge" class="btn btn-primary">Update Knowledge Entry</button>
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    </div>
+</div>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

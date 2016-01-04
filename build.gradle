@@ -72,8 +72,6 @@ jar {
     from genJaxb.classesDir
 }
 
-
-
 // tag::dependencies[]
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -86,6 +84,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-ws")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("wsdl4j:wsdl4j:1.6.1")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     jaxb("com.sun.xml.bind:jaxb-xjc:2.2.4-1")
     compile(files(genJaxb.classesDir).builtBy(genJaxb))
     // testCompile("junit:junit")
@@ -93,7 +92,6 @@ dependencies {
 // end::dependencies[]
 // end::jaxb[]
 
-
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    gradleVersion = '2.10'
 }
