@@ -19,6 +19,10 @@ repositories {
     mavenCentral()
 }
 
+springBoot {
+    mainClass = "at.ac.tgm.hit.syt.dezsys.hamplwortha.Application"
+}
+
 // tag::xsd[]
 task genJaxb {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
