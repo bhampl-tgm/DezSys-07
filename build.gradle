@@ -1,5 +1,5 @@
 group 'at.ac.tgm.hit.syt.dezsys.hamplwortha'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 buildscript {
     repositories {
@@ -72,7 +72,7 @@ configurations {
 
 jar {
     baseName = 'hamplwortha-dezsys07'
-    version = '1.0-SNAPSHOT'
+    version = '1.0'
     from genJaxb.classesDir
 }
 
