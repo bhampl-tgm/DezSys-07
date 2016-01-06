@@ -11,6 +11,9 @@ import java.io.InputStreamReader;
 
 /**
  * Ein einfacher SOAP Client
+ *
+ * @version 1.0
+ * @author Simon Wortha [simon.wortha@student.tgm.ac.at]
  */
 public class SOAClient {
 
@@ -50,7 +53,7 @@ public class SOAClient {
     }
 
     /**
-     *
+     * Printet die Nachricht des Servers in die Konsole
      * @param soapResponse Die Message von welcher ein Response erhalten werden soll
      * @throws Exception
      */
@@ -64,7 +67,7 @@ public class SOAClient {
     }
 
     /**
-     *
+     * Erstellt einen SOAP Request
      * @param title Der Titel nach welchem gesucht werden soll
      * @return Die SOAP Message fuer den Service
      * @throws Exception
