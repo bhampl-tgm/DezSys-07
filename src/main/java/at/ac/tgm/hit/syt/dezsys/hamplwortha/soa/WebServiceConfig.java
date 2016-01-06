@@ -12,10 +12,22 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+/**
+ * The web service config
+ *
+ * @version 1.0
+ * @author Burkhard Hampl [burkhard.hampl@student.tgm.ac.at]
+ */
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter{
 
+    /**
+     * Configures the massage dispatcher servlet
+     *
+     * @param applicationContext the context
+     * @return the beans
+     */
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -24,6 +36,12 @@ public class WebServiceConfig extends WsConfigurerAdapter{
         return new ServletRegistrationBean(servlet, "/knowledge/search/*");
     }
 
+    /**
+     * Configuration of the wsdl
+     *
+     * @param knowledgeSchema the schema
+     * @return the definition
+     */
     @Bean(name = "knowledge")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema knowledgeSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();

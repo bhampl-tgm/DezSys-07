@@ -8,6 +8,12 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+/**
+ * The Knowledge Endpoint for SOA
+ *
+ * @version 1.0
+ * @author Burkhard Hampl [burkhard.hampl@student.tgm.ac.at]
+ */
 @Endpoint
 public class KnowledgeEndpoint {
     public static final String NAMESPACE_URI = "http://at/ac/tgm/hit/syt/dezsys/hamplwortha/soa";
@@ -15,6 +21,12 @@ public class KnowledgeEndpoint {
     @Autowired
     private KnowledgeRepository knowledgeRepository;
 
+    /**
+     * Returns all Knowledge Entries containing the title of the request
+     *
+     * @param request the request
+     * @return all Knowledge Entries
+     */
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getKnowledgeRequest")
     @ResponsePayload
     public GetKnowledgeResponse getKnowledge(@RequestPayload GetKnowledgeRequest request) {
