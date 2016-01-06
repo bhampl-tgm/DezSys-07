@@ -58,7 +58,7 @@ public class SOAClient {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         Source sourceContent = soapResponse.getSOAPPart().getContent();
-        System.out.print("\nResponse SOAP Message = ");
+        System.out.println("\nResponse SOAP Message:");
         StreamResult result = new StreamResult(System.out);
         transformer.transform(sourceContent, result);
     }
@@ -93,7 +93,7 @@ public class SOAClient {
         soapMessage.saveChanges();
 
         // Print the request message
-        System.out.print("Request SOAP Message = ");
+        System.out.println("Request SOAP Message:");
         soapMessage.writeTo(System.out);
         System.out.println();
 
