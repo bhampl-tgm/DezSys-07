@@ -18,6 +18,7 @@ import java.io.InputStreamReader;
 public class SOAClient {
 
     private static final String NAMESPACE = "http://at/ac/tgm/hit/syt/dezsys/hamplwortha/soa";
+    private static final String URL = "http://localhost:8080/knowledge/search";
 
     /**
      * Hier wird der SOAP Client gestartet
@@ -39,8 +40,7 @@ public class SOAClient {
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
             // Send SOAP Message to SOAP Server
-            String url = "http://localhost:8000/knowledge/search";
-            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(title), url);
+            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(title), URL);
 
             // Process the SOAP Response
             printSOAPResponse(soapResponse);
